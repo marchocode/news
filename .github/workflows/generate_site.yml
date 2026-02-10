@@ -34,5 +34,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=news
+          command: pages deploy public --project-name=news.maruichao52.workers.dev
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
