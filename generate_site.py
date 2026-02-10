@@ -227,6 +227,7 @@ def generate_index(news_data):
 
     <footer class="text-center py-4 mt-5 text-muted">
         <p>&copy; {datetime.now().year} News Morning Paper</p>
+        <p class="small">Generated at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
