@@ -1,0 +1,36 @@
+name: Generate News Site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'generate_site.py'
+      - '.github/workflows/generate_site.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run generation script
+        run: |
+          python generate_site.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
